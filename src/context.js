@@ -22,6 +22,11 @@ const AppProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0);
   const [error, setError] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [quiz, setQuiz] = useState({
+    amount: 10,
+    category: 'sports',
+    difficulty: 'easy'
+  })
 
   const fetchQuestions = async(url) => {
     setLoading(true);
@@ -43,9 +48,13 @@ const AppProvider = ({ children }) => {
     }
   }
 
-  useEffect(() => {
-    fetchQuestions(tempUrl);
-  }, []);
+  const handleChange = (e) => {
+    console.log(e)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
 
   const handleNextQuestion = () => {
     setIndex((oldIndex) => {
@@ -88,7 +97,10 @@ const AppProvider = ({ children }) => {
         modalOpen,
         handleNextQuestion,
         checkAnswer,
-        handleCloseModal
+        handleCloseModal,
+        quiz,
+        handleChange,
+        handleSubmit
       }
     }>
       {children}
