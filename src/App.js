@@ -13,7 +13,6 @@ function App() {
     index, 
     correct, 
     handleNextQuestion, 
-    modalOpen,
     checkAnswer
   } = useGlobalContext();
 
@@ -26,7 +25,15 @@ function App() {
   };
 
   const {question, correct_answer, incorrect_answers} = questions[index];
-  const answers = [...incorrect_answers, correct_answer];
+  let answers = [...incorrect_answers]
+  const tempIndex = Math.floor(Math.random() * 4)
+  if(tempIndex === 3) {
+    answers.push(correct_answer) // push the correct answer in the end of the array
+  } else {
+    answers.push(answers[tempIndex]) // push the answer on the position 'tempIndex' to the end of the array
+    answers[tempIndex] = correct_answer // get the position tempIndex of the array and put the correct answer on that position
+  }
+
   return (
     <main>
       <Modal />
