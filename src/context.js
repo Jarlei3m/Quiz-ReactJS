@@ -57,6 +57,13 @@ const AppProvider = ({ children }) => {
 
       return index
     })
+  };
+
+  const checkAnswer = (value) => {
+    if(value) {
+      setCorrect((oldState) => oldState + 1)
+    }
+    handleNextQuestion();
   }
 
   return (
@@ -69,7 +76,8 @@ const AppProvider = ({ children }) => {
         error,
         correct,
         modalOpen,
-        handleNextQuestion
+        handleNextQuestion,
+        checkAnswer
       }
     }>
       {children}
