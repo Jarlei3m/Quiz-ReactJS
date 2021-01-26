@@ -12,7 +12,7 @@ const SetupForm = () => {
           <h2>Setup quiz</h2>
           <div className="form-control">
             <label htmlFor="amount">number of questions</label>
-            <input type="number" name="input" id="amount" className="form-input" min={1} max={50} value={amount} onChange={handleChange} />
+            <input type="number" name="amount" id="amount" className="form-input" min={1} max={50} value={amount} onChange={handleChange} />
           </div>
 
           {/* category */}
