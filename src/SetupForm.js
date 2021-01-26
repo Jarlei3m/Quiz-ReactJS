@@ -37,9 +37,9 @@ const SetupForm = () => {
 
           {error && (<p className="error">
               can't generate questions, please try differente options
-            </p>) }
+            </p>)}
 
-          <button className="submit-btn" type="submit" onSubmit={handleSubmit}>start</button>
+          <button className="submit-btn" type="submit" onClick={handleSubmit}>start</button>
         </form>
 
       </section>
